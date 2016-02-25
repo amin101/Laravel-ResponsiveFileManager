@@ -1,7 +1,43 @@
 <?php
-session_start();
+//session_start();
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Rome');
+
+/*
+ |-------------------------------------------------------------------------
+ | Adding laravel authentication
+ |--------------------------------------------------------------------------
+ */
+require __DIR__.'/../../../../../../vendor/autoload.php';
+$compiledPath = __DIR__.'/../../../../../../bootstrap/cache/compiled.php';
+
+if (file_exists($compiledPath)) {
+    require $compiledPath;
+}
+$app = require __DIR__ . '/../../../../../../bootstrap/app.php';
+
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+$id = $app['encrypter']->decrypt($_COOKIE[$app['config']['session.cookie']]);
+
+$app['session']->driver()->setId($id);
+$app['session']->driver()->start();
+//
+if(!$app['auth']->check()) 		die('Access Denied!');;
+// return true;
+
+// $role = $app['auth']->user()->role->slug;
+
+// return($role == 'admin' || $role == 'redac');
+
+// $kernel->terminate($request, $response);
+
+
+
 
 /*
 |--------------------------------------------------------------------------

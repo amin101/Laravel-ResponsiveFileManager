@@ -1,0 +1,22 @@
+{
+    "name": "amin101/laravel-responsivefilemanager",
+    "description": "integrating responsive file manager with laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "amin mazrouei",
+            "email": "aminmazrouei@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+		"php": ">=5.5.9",
+        "laravel/framework": "5.2.*"
+	
+	},
+  "autoload": {
+    "psr-4": {
+      "amin101\\ResponsiveFileManager\\": "src/"
+    }
+  }
+}
