@@ -608,7 +608,7 @@ function image_check_memory_usage($img, $max_breedte, $max_hoogte)
  *
  * @return  bool
  */
-function endsWith($haystack, $needle)
+function rfmEndsWith($haystack, $needle)
 {
 	return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
@@ -654,7 +654,7 @@ function new_thumbnails_creation($targetPath, $targetFile, $name, $current_path,
 				create_folder($targetPath . $path, false);
 			}
 			$info = pathinfo($name);
-			if ( ! endsWith($targetPath, $path))
+			if ( ! rfmEndsWith($targetPath, $path))
 			{
 				if ( ! create_img($targetFile, $targetPath . $path . $relative_image_creation_name_to_prepend[ $k ] . $info['filename'] . $relative_image_creation_name_to_append[ $k ] . "." . $info['extension'], $relative_image_creation_width[ $k ], $relative_image_creation_height[ $k ], $relative_image_creation_option[ $k ]))
 				{
