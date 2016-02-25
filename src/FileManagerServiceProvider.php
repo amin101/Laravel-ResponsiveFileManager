@@ -14,7 +14,9 @@ class FileMangerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../resources/filemanager/config/config.php'  =>  config_path('rfm.php'),
+        ]);
     }
 
     /**

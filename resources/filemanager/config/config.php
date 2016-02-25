@@ -1,20 +1,20 @@
 <?php
 //session_start();
 mb_internal_encoding('UTF-8');
-date_default_timezone_set('Europe/Rome');
+date_default_timezone_set('Iran');
 
 /*
  |-------------------------------------------------------------------------
  | Adding laravel authentication
  |--------------------------------------------------------------------------
  */
-require __DIR__.'/../../../../../../vendor/autoload.php';
+require_once __DIR__.'/../../../../../../vendor/autoload.php';
 $compiledPath = __DIR__.'/../../../../../../bootstrap/cache/compiled.php';
 
 if (file_exists($compiledPath)) {
-    require $compiledPath;
+    require_once $compiledPath;
 }
-$app = require __DIR__ . '/../../../../../../bootstrap/app.php';
+$app = require_once __DIR__ . '/../../../../../../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
